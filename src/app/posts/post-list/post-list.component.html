@@ -1,4 +1,4 @@
-<mat-accordion>
+<mat-accordion multi="true" *ngIf="posts.length > 0">
   <mat-expansion-panel *ngFor="let post of posts">
       <mat-expansion-panel-header> {{post.title}}</mat-expansion-panel-header>
 
@@ -6,19 +6,5 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-  <ul>
-    <li>Coffee</li>
-    <li>Tea</li>
-    <li>Milk</li>
-
-    <li *ngFor="let hero of heroes">
-
-        {{hero.name}}
-
-    </li>
-
-
-  </ul>
-
-
+<p class="info-text"  *ngIf="posts.length <=0"> No posts added yet! </p>
 
