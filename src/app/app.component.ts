@@ -9,11 +9,4 @@ import { Post } from './posts/post.model';
 export class AppComponent {
   title = 'mean-course';
 
-  storedPosts: Post[] = [];
-
-  onPostAdded(post: Post) {
-    //alert ("Post added : " + post.title + " " + post.content);
-
-    this.storedPosts.push(post);
-  }
 }
