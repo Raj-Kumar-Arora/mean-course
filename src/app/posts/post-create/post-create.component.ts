@@ -21,5 +21,8 @@ export class PostCreateComponent {
 
      // alert ("post-create - onAddPost");
       this.postsService.addPost(form.value.title, form.value.content);
+
+      //clear user inputs after processing
+      form.reset();
     }
 }
