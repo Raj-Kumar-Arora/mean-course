@@ -24,10 +24,15 @@ export class PostsService {
 
   addPost (title:string, content:string) {
     const post: Post = {title:title, content:content};
+    //alert ("post-service - post adding... " + post);
 
-    this.posts.push(post);
-    this.postUpdated.next([...this.posts]);
-   // alert ("post-service - post added");
+    this.http.post<{message: string}> ("http://localhost:3000/api/posts", post)
+        .subscribe( responseData => {
+            console.log("Adding post from client :" + responseData.message);
+            this.posts.push(post);
+            this.postUpdated.next([...this.posts]);
+           // alert ("post-service - post added" + responseData.message);
+        });
   }
 
   getPostUpdatedListener() {

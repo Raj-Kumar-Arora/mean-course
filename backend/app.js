@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.posts('api/posts', (req, res, next) => {
+app.post('api/posts', (req, res, next) => {
   const post = req.body;
   console.log ("Post data received in server : " + post);
 
