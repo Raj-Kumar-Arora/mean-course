@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const { APP_ID } = require('@angular/core');
 
 app.use(function(req, res, next) {
   //set headers to allow cross origin request.
@@ -14,6 +15,16 @@ app.use(function(req, res, next) {
 //Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.posts('api/posts', (req, res, next) => {
+  const post = req.body;
+  console.log ("Post data received in server : " + post);
+
+  res.status(201).json( {
+    message : 'Post fetched successfully!'
+  });
+
+});
 
 app.use('/api/posts', (req, res, next) => {
   const posts = [
